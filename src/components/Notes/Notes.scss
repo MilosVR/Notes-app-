@@ -1,0 +1,327 @@
+@import '../../App.scss';
+
+.notes-app{
+    width: 100%;
+    height: 100%;
+    .container{
+        background: #d3d3d3;
+        min-height: 100vh;
+    }
+    .notes-main-title{
+        text-align: center;
+        padding: 3rem;
+        color: $primaryColor;
+    }
+}
+.drafts-wraper{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background: rgba(black, .7);
+    .if-drafts-is-empty{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        z-index: 5;
+        text-align: center;
+        h2{
+            min-width: 200px;
+            color: #d3d3d3;
+            margin: 1rem;
+        }
+    }
+    .drafts{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        flex-direction: column;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    .draft-item{
+        width: 400px;
+        color: $primaryColor;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        border-radius: .3rem;
+        color: #333;
+        background: $secondaryColor;
+        .draft-item-wraper{
+            width: 100%;
+            text-align: left;
+            .draft-item-title{
+                margin: .5rem;
+               color: #d3d3d3;
+                border-radius: .2rem;
+                padding: .5rem;
+            }
+            .draft-item-body{
+                margin: .5rem;
+               color: #d3d3d3;
+                border-radius: .2rem;
+                padding: .5rem;
+            }
+            .draft-item-author{
+                margin: .5rem;
+               color: #d3d3d3;
+                border-radius: .2rem;
+                padding: .5rem;
+            }
+        }
+        .draft-item-btns{
+            border-top: 1px solid #d3d3d3;
+            width: 100%;
+            display: flex;
+            padding: 1rem;
+            justify-content: space-between;
+        }
+    }
+}
+.notes-app-body{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 1rem;
+    margin: 1rem;
+    .add-draft-btn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding-right: 1rem;
+        width: 20%;
+        .draft-btn{
+            border-top: 1px solid rgb(161, 161, 161);
+            border-bottom: 1px solid rgb(161, 161, 161);
+            padding: .75rem 0;
+            width: 100%;
+            cursor: pointer;
+        }
+        .add-btn{
+            border-top: 1px solid rgb(161, 161, 161);
+            padding: .75rem 0;
+            width: 100%;
+            cursor: pointer;
+        }
+        button{
+            margin: .5rem 0;
+            background: $secondaryColor;
+            color: #d3d3d3;
+        }
+    }
+    .note_wraper{
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        grid-template-columns: repeat(4, 1fr);
+        width: 80%;
+        grid-gap: 1rem;
+        padding-left: 1rem;
+        border-left: 1px solid $secondaryColor;
+        .note-item{
+            padding:.5rem;
+            border-radius: .2rem;
+            margin: .3rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            background: $secondaryColor;
+            color: #d3d3d3;
+            min-height: 300px;
+            .note-inner-title-author{
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+                align-items: center;
+                .note-status{
+                    cursor: pointer;
+                }
+                h4{
+                    color: $primaryColor;
+                }
+            }
+            .note-inner-body{
+                background: #d3d3d3;
+                line-height: 1.3rem;
+                padding: .5rem;
+                color: $secondaryColor;
+                border-radius: .2rem;
+                margin: .5rem 0;
+                width: 100%;
+                &.note-item-underline{
+                    text-decoration: line-through;
+                }
+            }
+            button{
+                margin: 1rem;
+                background: $primaryColor;
+            }
+            .note-item-inner{
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+            }
+        }
+    }
+}
+.notes-search-fiter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $secondaryColor;
+    color: #d3d3d3;
+    padding: 1.25rem 0;
+    .notes-search-fiter-input{
+        input{
+            width: 450px;
+        }
+    }
+    .notes-sort-btns{
+        margin-left: 1rem;
+        border-left: 1px solid #d3d3d3;
+        button{
+            margin-left: .5rem;
+        }
+    }
+}
+.modal{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.7);
+    top: 0;
+    left: 0;
+    z-index: 10;
+    .modal-inner{
+        padding: 2rem;
+        width: 500px;
+        background: #333;
+        color: #fff;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: .2rem;
+        h2{
+            color: $primaryColor;
+            text-align: center;
+            width: 100%;
+            position: relative;
+            top: 0;
+            margin: 1rem;
+        }
+        .modal-inner-form-field{
+            display: flex;
+            flex-direction: column;
+            label{color: #d3d3d3;}   
+            input{
+                margin: .5rem 0;
+                width: 400px;
+            }
+        }
+        .modal-btns{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            div{
+                button{
+                    margin: .5rem;
+                }
+            }
+            button{
+                margin: .5rem 0;
+            }
+        }
+    }
+}
+@media only screen and (max-width:1050px){
+    .note_wraper{
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+@media only screen and (max-width:800px){
+    .note_wraper{
+        grid-template-columns: repeat(2, 1fr) !important;
+        width: 100% !important;
+    }
+    .notes-app-body{
+        flex-direction: column !important;
+    }
+    .add-draft-btn{
+        flex-direction: row !important;
+        justify-content: center !important;
+        width: 100% !important;
+        margin-bottom: 1rem;
+        padding-right: 0 !important;
+        .draft-btn{
+            border-top: 1px solid rgb(161, 161, 161);
+            border-bottom: 1px solid rgb(161, 161, 161);
+            padding: .75rem 0;
+            width: 100%;
+            cursor: pointer;
+            position: relative;
+        }
+        .add-btn{
+            border-top: 1px solid rgb(161, 161, 161);
+            padding: .75rem 0;
+            width: 100%;
+            cursor: pointer;
+        }
+        button{
+            margin: .5rem 0;
+            background: $secondaryColor;
+            color: #d3d3d3;
+        }
+    }
+    .note_wraper{
+        border-left: 0 !important;
+        padding-left: 0 !important;
+    }
+    .notes-search-fiter{
+        flex-direction: column !important;
+        padding: 1.25rem 0;
+        .notes-search-fiter-input{
+            margin-bottom: 1rem;
+            width: 100% !important;
+            text-align: center;
+            input{
+                width: 450px;
+            }
+        }
+        .notes-sort-btns{
+            border-left: none !important;
+        }
+    }
+}
+
+@media only screen and (max-width:580px){
+    .note_wraper{
+        grid-template-columns: 1fr !important;
+    }
+    .note-item{
+        min-height: 220px !important;
+    }
+    .notes-search-fiter-input{
+        margin-bottom: 1rem;
+        width: auto !important;
+        input{
+            margin-top: .5rem !important;
+        }
+    }
+}

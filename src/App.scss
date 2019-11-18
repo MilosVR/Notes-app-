@@ -1,0 +1,37 @@
+$primaryColor : #fa8072;
+$secondaryColor: #333;
+
+* {
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+body{
+    padding: 0;
+    margin: 0;
+}
+h1,h2,h3,h4,h5,h6, p{
+    padding: 0;
+    margin: 0;
+}
+button{
+    outline: none;
+    border: none;
+    cursor: pointer;
+    padding: .5rem 1rem;
+    border-radius: .2rem;
+}
+input{
+    outline: none;
+    border: 1px solid #d3d3d3;
+    border-radius: .2rem;
+    padding: .5rem;
+}
+.container{
+    width: 1280px;
+    margin: 0 auto;
+}
+@media only screen and(max-width:1280px){
+    .container{
+        width: auto !important;
+    }
+}
